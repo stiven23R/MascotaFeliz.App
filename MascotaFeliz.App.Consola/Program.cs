@@ -25,5 +25,22 @@ namespace MascotaFeliz.App.Consola
             };
             _repoMascota.AddMascota(mascota);
         }
-    }
+        private static IRepositorioCliente _repositorioCliente =new RepositorioCliente(new Persistencia.AppContext());
+        static void Main(string[ args])
+        {
+            Console.WriteLine("Hello World");
+            AddCliente();
+        }
+        private static void AddCliente()
+        {
+            var cliente = new Cliente
+            {
+                Nombre = "Ceci",
+                Apellidos = "Negro"
+                Email = "email@email.com",
+                Cpf = "123456789",
+                Telefone = "123412341234",
+                Direccion = "cr45av1"
+            };
+            _repositorioCliente.AddCliente(cliente);
 }
